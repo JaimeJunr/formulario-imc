@@ -1,4 +1,10 @@
-import { useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import "./App.scss";
 
 function App() {
@@ -31,11 +37,11 @@ function App() {
     else return "OBESIDADE";
   }
 
-  function handleInputChange(event, setter) {
-    const newValue = parseFloat(event.target.value);
-    if (!isNaN(newValue)) {
-      setter(newValue);
-    }
+  function handleInputChange(
+    event: ChangeEvent<HTMLInputElement>,
+    setter: Dispatch<SetStateAction<number>>
+  ) {
+    setter(parseFloat(event.target.value));
   }
 
   return (
